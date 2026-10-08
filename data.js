@@ -13,7 +13,7 @@ window.ITEMS=[
 [0,'หอมแดง',10,'ถุง'],[0,'พริกหอม',1,'กก.'],[0,'พริกเม็ดใหญ่แดง',1,'กก.'],[0,'พริกเม็ดใหญ่เขียว',1,'กก.'],
 [0,'ขนมจีน 1 กก. (5 ชิ้น/หิ้ว)',5,'หิ้ว'],[0,'หอมแขก',5,'ถุง'],[0,'ขิงแก่',5,'ถุง'],[0,'มะขามเปียก',1,'กก.'],
 [0,'เห็ดขาว (กก.)',1,'กก.'],[0,'เห็ดดำ (กก.)',1,'กก.'],[0,'พริกแห้งเม็ดเล็ก',5,'ถุง'],
-[0,'พริกแห้งเม็ดใหญ่',5,'ถุง'],[0,'ชุดผักรวม','','แพค'],
+[0,'พริกแห้งเม็ดใหญ่',5,'ถุง'],[0,'ชุดผักรวม','','แพค'],[0,'เต้าหู้ไข่','','หลอด'],[0,'วุ้นเส้น','','ห่อ'],
 ['ใบสั่งผัก – คอลัมน์ขวา','เห็ดเข็มทอง (20 ชิ้น/ลัง)','','ลัง'],[0,'กวางตุ้งฮ่องเต้',5,'ลัง'],[0,'มันฝรั่ง',5,'ถุง'],
 [0,'เห็ดขาว (แพ็ค)','','แพค'],[0,'เห็ดดำ (แพ็ค)','','แพค'],[0,'เห็ดออรินจิ (แพ็ค)','','แพค'],
 [0,'บล็อกโคลี่','','หัว'],[0,'เห็ดครีมแพ็ค','','แพค'],[0,'แครอท',10,'ลัง'],[0,'หอมหัวใหญ่',5,'ถุง'],
@@ -26,9 +26,20 @@ window.ITEMS=[
 [0,'หอยดอง 500 ก. (12 ขวด/หิ้ว)','','หิ้ว'],[0,'ผักกาดแก้ว','','หัว'],[0,'เห็ดออรินจิ (กก.)',1,'กก.'],
 [0,'ออรินจิถาด','','ถาด'],[0,'ข้าวโพดอ่อน',0.5,'ถุง']
 ];
-window.PACK_ITEMS=['ผักชีใบเลื่อย','ใบโหระพา','ใบกระเพรา','คะน้า','กวางตุ้ง','ผักชี','ต้นหอม','ผักชี-ต้นหอม','ผักชีล้อม','ชุดชาบู','ผักบุ้ง','ผักสลัด','กวางตุ้งฮ่องเต้'];
+window.PACK_ITEMS=['ผักชีใบเลื่อย','ใบโหระพา','ใบกระเพรา','คะน้า','กวางตุ้ง','ผักชี','ต้นหอม','ผักชี-ต้นหอม','ผักชีล้อม','ชุดชาบู','ผักบุ้ง','ผักสลัด','กวางตุ้งฮ่องเต้','แครอท'];
 /* ชุดที่เราจัดแพ็กใหม่เอง — ทุนมาจากผักหลายอย่างที่ "แบ่งไปทำ" เข้ามา */
-window.SET_ITEMS=['ชุดผักชาบู','ชุดต้มจืด','ชุดต้มยำ'];
+window.SET_ITEMS=['ชุดผักชาบู','ชุดหมูกระทะ','ชุดแกงจืด','ชุดต้มยำ','ผักชี-ต้นหอม'];
+/* ส่วนประกอบของแต่ละชุด (น้ำหนักต่อชุดยังรอชั่งจริง) */
+window.SET_RECIPE={
+ 'ชุดผักชาบู':  ['ผักบุ้ง','ผักชีล้อม','แครอท','ผักกาดขาว','วุ้นเส้น',
+                 'เห็ดออรินจิ (แพ็ค)','เห็ดเข็มทอง (20 ชิ้น/ลัง)','เห็ดขาว (แพ็ค)','เห็ดดำ (แพ็ค)'],
+ 'ชุดหมูกระทะ': ['ผักบุ้ง','ผักชีล้อม','กวางตุ้งฮ่องเต้','วุ้นเส้น','แครอท','ผักกาดขาว',
+                 'เห็ดขาว (แพ็ค)','เห็ดดำ (แพ็ค)','เห็ดออรินจิ (แพ็ค)'],
+ 'ชุดแกงจืด':   ['ผักชีล้อม','ต้นหอม','แครอท','ผักกาดขาว','เต้าหู้ไข่','วุ้นเส้น',
+                 'เห็ดขาว (แพ็ค)','เห็ดดำ (แพ็ค)','เห็ดออรินจิ (แพ็ค)'],
+ 'ชุดต้มยำ':    ['ใบมะกรูด','ตะไคร้','ข่า'],
+ 'ผักชี-ต้นหอม':['ผักชี','ต้นหอม']        /* ถุงรวม มีแค่ 2 อย่างนี้ */
+};
 /* สินค้าแพ็กเกจพร้อมขาย — มาเป็นแพ็กสำเร็จรูป ไม่ต้องตัดแต่ง แค่บวกกำไรติดราคา */
 window.READY_ITEMS=['ชุดแกงป่า','ชุดผักรวม','ผักกาดดอง','หน่อไม้ดอง','หน่อไม้เส้น',
  'หน่อไม้เปรี้ยว (ถุง)','หน่อไม้เปรี้ยว (ขวด)','ข้าวโพดถาด',
@@ -55,41 +66,74 @@ window.calcBuy=(r,info)=>{
 };
 
 /* ใบที่ 2: ตัดแต่ง + แพค (รองรับการย้ายเศษไปรวมกับรายการอื่น) */
-window.calcPack=(rows,target)=>{
-  const tgt=N(target)/100;
-  /* น้ำหนักรับเข้า = น้ำหนักที่ถึงโต๊ะตัดแต่ง (ชั่งครั้งเดียว)
-     "แบ่งไปทำ" = หักออกไปทำรายการอื่น เช่น ชุดชาบู / ถุงผักชี-ต้นหอม ทุนตามไปด้วย */
-  const base=rows.map(r=>{
-    const w=N(r.w), ck=N(r.ck), mv=Math.min(N(r.mv), w);
-    return {w:w, ck:ck, mv:mv, keep:w-mv, tot:(w-mv)*ck, moveCost:mv*ck};
+window.STD_COST={};          /* ทุนมาตรฐานของวัตถุดิบต่างแผนก {ชื่อ:{cost,unit,dept}} */
+window.STD_PRICE={};         /* ราคาขายมาตรฐาน {ชื่อ:{price,from,note}} */
+window.calcPack=(rows,target,alloc)=>{
+  const tgt=N(target)/100; alloc=alloc||{};
+  const idx={}; rows.forEach((r,i)=>{ if(r.n && idx[r.n]===undefined) idx[r.n]=i; });
+  const outKg=rows.map(()=>0), inKg=rows.map(()=>0), inCost=rows.map(()=>0);
+  /* รอบ 1 — รวมน้ำหนักที่แบ่งออกจากผักแต่ละอย่าง */
+  Object.keys(alloc).forEach(k=>{
+    const [from,to]=k.split('\u0001'); const i=idx[from];
+    if(i===undefined) return;
+    outKg[i]+=Math.max(0,N(alloc[k]));
   });
-  const inW=rows.map(()=>0), inC=rows.map(()=>0);
-  rows.forEach((r,i)=>{
-    if(base[i].mv<=0 || !r.mt) return;
-    let j=-1; rows.forEach((x,k)=>{ if(k!==i && x.n===r.mt && j<0) j=k; });
-    if(j<0) return;
-    inW[j]+=base[i].mv; inC[j]+=base[i].moveCost;
+  const base=rows.map((r,i)=>{
+    const w=N(r.w), ck=N(r.ck);
+    const out=Math.min(outKg[i], w);
+    return {w:w, ck:ck, out:out, keep:w-out, tot:(w-out)*ck};
+  });
+  /* รอบ 2 — ย้ายทุนไปยังชุดปลายทาง
+     ผักที่ซื้อเองวันนั้น ใช้ทุน/กก.ของวันนั้น · ของต่างแผนก (วุ้นเส้น เต้าหู้ไข่) ใช้ทุนมาตรฐาน */
+  Object.keys(alloc).forEach(k=>{
+    const [from,to]=k.split('\u0001'); const i=idx[from], j=idx[to];
+    if(j===undefined) return;
+    const qty=Math.max(0,N(alloc[k]));
+    if(i!==undefined && base[i].w>0){
+      const kg=Math.min(qty, base[i].w);
+      inKg[j]+=kg; inCost[j]+=kg*base[i].ck;
+    }else{
+      const std=STD_COST[from];
+      if(std){ inKg[j]+=0; inCost[j]+=qty*N(std.cost); }
+    }
   });
   return rows.map((r,i)=>{
     const t0=N(r.t), ws=N(r.ws), g=N(r.g), bg=N(r.bg), s=N(r.s);
-    const keep = base[i].keep;                       // คงเหลือหลังแบ่งไปทำอย่างอื่น
-    const te   = t0 + inW[i];                        // น้ำหนักพร้อมขาย (รวมที่รับมาจากรายการอื่น)
-    const tot  = base[i].tot + inC[i];               // ทุนรวมที่ต้องแบก
-    const y    = keep>0 ? t0/keep*100 : 0;           // % ของเหลือหลังตัดแต่ง
-    const wsPc = keep>0 ? ws/keep*100 : 0;           // % ผักเสีย
-    const miss = (keep>0 && t0>0) ? keep-t0-ws : 0;  // ส่วนที่หายไปโดยไม่ได้ลงเป็นผักเสีย
-    const ckt = te>0 ? tot/te : 0;
-    const exp = g>0 ? te*1000/g : 0;
+    const keep = base[i].keep;
+    const te   = (t0||keep&&0) + inKg[i] + (t0?0:0);
+    const sell = t0>0 ? t0+inKg[i] : (inKg[i]>0 ? inKg[i] : 0);
+    const tot  = base[i].tot + inCost[i];
+    const y    = keep>0 ? t0/keep*100 : 0;
+    const wsPc = keep>0 ? ws/keep*100 : 0;
+    const miss = (keep>0 && t0>0) ? keep-t0-ws : 0;
+    const ckt = sell>0 ? tot/sell : 0;
+    const exp = g>0 ? sell*1000/g : 0;
     const df  = exp>0 ? (bg-exp)/exp*100 : 0;
     const cpb = bg>0 ? tot/bg : 0;
     const sug = cpb>0 ? Math.ceil(cpb*(1+tgt)/5)*5 : 0;
     const sugG = (s>0 && ckt>0) ? (s/(1+tgt))/ckt*1000 : 0;
-    const bagsFromSug = sugG>0 ? te*1000/sugG : 0;
+    const bagsFromSug = sugG>0 ? sell*1000/sugG : 0;
+    /* ===== น้ำหนักที่ควรใส่วันนี้ =====
+       กติกา: ใช้ตัวที่ "น้อยกว่า" ระหว่าง กรัมมาตรฐานของเรา กับ กรัมที่ทำให้ได้กำไรขั้นต่ำ
+       ของถูก → ใส่ตามมาตรฐาน กำไรเกินเป้าก็ไม่ต้องเพิ่มให้กำไรลด
+       ของแพง → ลดกรัมลงจนได้กำไรขั้นต่ำ                                        */
+    const SP = (window.STD_PRICE||{})[r.n] || {};
+    const minM = (N(SP.min_margin)||70)/100;
+    const stdG = N(SP.std_gram);
+    const gMin = (s>0 && ckt>0) ? (s/(1+minM))/ckt*1000 : 0;   // กรัมที่ได้กำไรขั้นต่ำพอดี
+    const todayG = gMin>0 ? (stdG>0 ? Math.min(stdG, gMin) : gMin) : 0;
+    const cpbAtStd   = (stdG>0&&ckt>0) ? stdG/1000*ckt : 0;
+    const marginStd  = (cpbAtStd>0&&s>0) ? (s-cpbAtStd)/cpbAtStd*100 : 0;
+    const cpbToday   = (todayG>0&&ckt>0) ? todayG/1000*ckt : 0;
+    const marginToday= (cpbToday>0&&s>0) ? (s-cpbToday)/cpbToday*100 : 0;
+    const mustCut    = stdG>0 && gMin>0 && gMin < stdG;        // ต้องลดกรัมลง
     const pf  = (s&&cpb) ? s-cpb : 0;
     const pc  = (cpb>0&&s) ? pf/cpb*100 : 0;
     const rev = bg*s, gp = rev ? rev-tot : 0;
-    return {keep,te,tot,y,wsPc,miss,ckt,exp,df,cpb,sug,sugG,bagsFromSug,pf,pc,rev,gp,
-            moveKg:base[i].mv, moveCost:base[i].moveCost, inKg:inW[i], inCost:inC[i]};
+    return {keep, te:sell, tot, y, wsPc, miss, ckt, exp, df, cpb, sug, sugG, bagsFromSug,
+            stdG, minM:minM*100, todayG, marginStd, marginToday, mustCut, cpbToday,
+            pf, pc, rev, gp, moveKg:base[i].out, moveCost:base[i].out*base[i].ck,
+            inKg:inKg[i], inCost:inCost[i]};
   });
 };
 
@@ -118,6 +162,6 @@ const VEG_ICONS=[
  ['หน่อไม้','🎋'],['ขนมจีน','🍜'],['หอยดอง','🫙'],['มะขาม','🫘'],
  ['ผักสลัด','🥗'],['ผักกาด','🥬'],['กะหล่ำ','🥬'],['กวางตุ้ง','🥬'],['คะน้า','🥬'],['ผักบุ้ง','🥬'],
  ['ผักชี','🌿'],['ต้นหอม','🌿'],['โหระพา','🌿'],['กระเพรา','🌿'],['มะกรูด','🌿'],
- ['ชุดผักชาบู','🍲'],['ชุดต้มจืด','🍲'],['ชุดต้มยำ','🍲'],['ชุดผัก','🧺'],['ชุดแกง','🧺'],['ผักกาดดอง','🫙']
+ ['ชุดผักชาบู','🍲'],['ชุดหมูกระทะ','🍲'],['ชุดแกงจืด','🍲'],['ชุดต้มยำ','🍲'],['เต้าหู้ไข่','🧈'],['วุ้นเส้น','🍜'],['ชุดผัก','🧺'],['ชุดแกง','🧺'],['ผักกาดดอง','🫙']
 ];
 window.vegIcon=n=>{ for(const [k,e] of VEG_ICONS) if(String(n).indexOf(k)>=0) return e; return '🥬'; };
